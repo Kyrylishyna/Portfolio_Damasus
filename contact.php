@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php?status=success#home");
         exit();
 
-    } catch (Exception $e) {
-        echo "error";
-        exit();
+    }catch (Exception $e) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+
     }
 }
