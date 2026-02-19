@@ -220,7 +220,7 @@
     </section>
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
-        <form action="https://twojanazwa.infinityfreeapp.com/contact.php" method="POST">
+        <form action="contact.php" method="POST">
             <div class="input-box">
                 <input type="text" name="name" placeholder="Full Name">
                 <input type="email" name="email" placeholder="Email Address">
