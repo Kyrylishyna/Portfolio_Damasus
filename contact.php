@@ -26,8 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth   = true;
         $mail->Username   = 'kyrylishynaviktoriia@gmail.com'; // YOUR GMAIL
         $mail->Password   = 'puavyumxuasnkxou'; // APP PASSWORD
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            )
+        );
 
         // Email Settings
         $mail->setFrom('kyrylishynaviktoriia@gmail.com', 'Portfolio Contact');
