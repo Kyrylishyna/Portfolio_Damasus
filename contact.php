@@ -5,9 +5,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'src/Exception.php';
-require 'src/PHPMailer.php';
-require 'src/SMTP.php';
+require 'vendor/autoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -26,14 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth   = true;
         $mail->Username   = 'kyrylishynaviktoriia@gmail.com'; // YOUR GMAIL
         $mail->Password   = 'puavyumxuasnkxou'; // APP PASSWORD
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
 
         // Email Settings
         $mail->setFrom('kyrylishynaviktoriia@gmail.com', 'Portfolio Contact');
